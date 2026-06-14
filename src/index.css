@@ -1,0 +1,476 @@
+/* 
+    ARCHIVO: index.css (Migración de detalles.css e imagenes.css)
+    PROPÓSITO: Manejar estilos generales, colores institucionales, tipografías,
+               estructuras y efectos visuales de las imágenes.
+*/
+
+/* ==========================================
+   1. Variables Globales: Colores y Degradados
+   ========================================== */
+:root {
+    --color-primary: #a11222;       /* Rojo Institucional */
+    --color-secondary: #510a11;     /* Rojo Muy Oscuro / Vinotinto */
+    --color-accent: #f5b927;        /* Amarillo Institucional / Dorado */
+    --text-dark: #333333;           /* Color de texto base */
+
+    /* Gradiente suave e intuitivo para crear elegancia (Degradé) */
+    --gradient-hero: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    --gradient-cta: linear-gradient(45deg, var(--color-primary) 0%, #d82b3d 100%);
+}
+
+/* Degrade rojo y amarillo para el titulo */
+.text-gradient {
+    background: linear-gradient(90deg, #f5b927, #ff5757);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+/* ==========================================
+   2. Reseteo y ajustes de Tipografía
+   ========================================== */
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================
+   3. Header Principal y Hero Section (Uso de degradado)
+   ========================================== */
+.main-header {
+    background: var(--gradient-hero);
+    min-height: 80vh;
+    /* Ocupar casi toda la pantalla inicial */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    /* Curva que abarca de extremo a extremo en la parte inferior */
+    border-bottom-left-radius: 50% 60px;
+    border-bottom-right-radius: 50% 60px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Sombra suave para realzar el borde curveado */
+}
+
+/* Modificación de la barra de navegación para darle un pequeño fondo oscuro al hacer scroll */
+.navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Logo icon con acento dorado */
+.logo-icon {
+    color: var(--color-accent);
+}
+
+.hero-section {
+    flex-grow: 1;
+    /* Permite que el contenido del hero se centre ocupando todo el espacio restante */
+}
+
+/* Botones y Elementos Interactivos - Efecto visual tipo "Hover" para dinamismo */
+.btn-warning {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #111;
+    /* Contraste fuerte */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-warning:hover {
+    background-color: #e6a617;
+    /* Dorado levemente más oscuro */
+    border-color: #e6a617;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 184, 28, 0.4);
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================
+   4. Estilos de Títulos y Secciones
+   ========================================== */
+.section-title {
+    color: var(--color-primary);
+    position: relative;
+    display: inline-block;
+}
+
+/* Pequeña línea decorativa debajo de los títulos (detalle profesional) */
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-accent);
+    border-radius: 2px;
+}
+
+/* Alinear la línea al centro cuando el contenedor esté centrado (Por ejemplo, en noticias) */
+.text-center .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.badge.bg-primary {
+    background-color: var(--color-secondary) !important;
+}
+
+/* ==========================================
+   5. Cajas de noticias y tarjetas (Cards)
+   ========================================== */
+.noticia-card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.noticia-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.text-primary {
+    color: var(--color-secondary) !important;
+}
+
+/* ==========================================
+   6. Call to Action (CTA) Section
+   ========================================== */
+.cta-section {
+    background: var(--gradient-cta);
+    position: relative;
+}
+
+/* Efecto hover al botón interactivo del CTA */
+.action-btn {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    /* Efecto pop intuitivo */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   7. Footer - Pie de página usando el color principal
+   ========================================== */
+.footer {
+    background-color: var(--color-primary);
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    color: var(--color-accent);
+    /* Brilla en dorado al pasar el mouse */
+}
+
+/* Botones circulares sociales en el pie de página */
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   8. Estilos Adicionales: Botón Flotante, Estadísticas y FAQ
+   ========================================== */
+
+/* Botón Flotante de Contacto - Siempre visible */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    /* Verde tipo WhatsApp */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: bounceTwice 3s infinite;
+}
+
+.floating-btn:hover {
+    background-color: #128C7E;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4) !important;
+    animation: none;
+}
+
+/* Animación sutil para que el usuario note el botón */
+@keyframes bounceTwice {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+/* Efecto Hover para Cajas de Estadística */
+.stat-box {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    opacity: 0.9;
+}
+
+/* Adaptación del Acordeón (FAQ) a los colores institucionales */
+.accordion-button:not(.collapsed) {
+    color: var(--color-secondary);
+    background-color: rgba(245, 185, 39, 0.1);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+}
+
+.accordion-button:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 0.25rem rgba(245, 185, 39, 0.25);
+}
+
+/* ==========================================
+   9. Estilos de Imágenes (De imagenes.css)
+   ========================================= */
+
+/* Contenedor de la Imagen principal de "Nosotros" (Efecto de capa exterior) */
+.img-wrapper {
+    position: relative;
+    padding: 10px; /* Crea espacio para simular un borde decorativo */
+    z-index: 1;
+}
+
+/* Pseudo-elemento que actúa como bloque de color "sombra" decorativo detrás de la imagen de presentación */
+.img-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    background-color: #003366; /* Azul Institucional para hacer contraste */
+    border-radius: 20px;
+    z-index: -1; /* Lo posicionamos detrás */
+    transform: translate(-15px, 20px);
+}
+
+.school-img {
+    border-radius: 20px;
+    object-fit: cover;
+    width: 100%;
+    height: 450px; /* Fija una altura uniforme y balanceada */
+    transition: transform 0.4s ease;
+}
+
+/* Ligero zoom en la imagen institucional al pasar el cursor (Interacción fluida) */
+.img-wrapper:hover .school-img {
+    transform: scale(1.02);
+}
+
+/* Contenedor de las Imágenes en las Tarjetas (Noticias) */
+.img-container {
+    overflow: hidden; /* Evitamos que la imagen se salga al hacer zoom */
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+/* Comportamiento base y encuadre para las imágenes de las noticias */
+.news-img {
+    height: 250px;
+    object-fit: cover; /* Garantiza que la imagen cubra todo el espacio sin deformarse */
+    width: 100%;
+    transition: transform 0.5s ease; /* Efecto suave de transición */
+}
+
+/* Efecto zoom al pasar sobre la tarjeta de noticia (Mejora experiencia de usuario) */
+.noticia-card:hover .news-img {
+    transform: scale(1.1) rotate(1deg); /* Sutil zoom y muy leve rotación para un efecto orgánico */
+}
+
+/* Ajustes de imágenes para Responsividad Fina (Dispositivos pequeños) */
+@media (max-width: 768px) {
+    /* Ajustamos el decorado de la imagen para que en móvil no cause overflow */
+    .img-wrapper::before {
+        transform: translate(-10px, 15px);
+        width: 100%;
+    }
+    
+    .school-img {
+        height: 300px; /* Reducimos la altura en celulares */
+    }
+}
+
+/* ==========================================
+   10. Estilos del Formulario de Contacto
+   ========================================== */
+.paso-header {
+    background: linear-gradient(135deg, var(--color-secondary, #510a11), var(--color-primary, #a11222));
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px 12px 0 0;
+}
+
+.grupo-campos {
+    border-left: 4px solid #f5b927;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+    border-color: #198754;
+    background-image: none;
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #dc3545;
+    background-image: none;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#mensajeExito {
+    animation: fadeInDown 0.5s ease forwards;
+}
+
+/* ==========================================
+   11. Menú Inferior Móvil (Estilo WhatsApp)
+   ========================================== */
+.mobile-bottom-menu {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 92%;
+    max-width: 400px;
+    background: rgba(40, 40, 40, 0.85); /* Oscuro translúcido / Glassmorphism */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 10px 15px;
+    border-radius: 35px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1050;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #b0b0b0;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 5px;
+}
+
+.mobile-menu-item svg {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 4px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-item:hover,
+.mobile-menu-item.active {
+    color: var(--color-accent); /* Resalta en dorado */
+}
+
+.mobile-menu-item.active svg {
+    transform: scale(1.15);
+}
+
+/* Ocultar menú inferior en escritorio */
+@media (min-width: 769px) {
+    .mobile-bottom-menu {
+        display: none !important;
+    }
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    /* Ocultar el botón de menú hamburguesa ya que usamos el menú inferior */
+    .navbar-toggler {
+        display: none !important;
+    }
+    
+    .collapse.navbar-collapse {
+        display: none !important;
+    }
+
+    /* Padding extra al final de la página para que el menú no tape contenido */
+    body {
+        padding-bottom: 90px;
+    }
+
+    /* Subir un poco el botón flotante verde para que no se superponga al menú inferior */
+    .floating-btn {
+        bottom: 100px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .floating-btn svg {
+        width: 25px;
+        height: 25px;
+    }
+}
